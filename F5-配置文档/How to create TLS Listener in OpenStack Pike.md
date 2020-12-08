@@ -3,6 +3,7 @@
 
 # 更新Neutron 配置文件 
 vi /etc/neutron/neutron.conf
+```ini 
 
 [service_auth]
 auth_url=http://10.251.13.59:5000/v2.0
@@ -10,6 +11,7 @@ admin_user = admin
 admin_tenant_name = admin
 admin_password=mfaWxhNKjtQ8GfFDf9agr6HsY
 auth_version = 2
+```
 
 # 更新f5-openstack-agent 配置文件 
 vi /etc/neutron/services/f5/f5-openstack-agent.ini
