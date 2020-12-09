@@ -31,6 +31,12 @@ os_project_domain_name = default
 f5_parent_ssl_profile = clientssl
 ```
 
+# 重启Neutron Server
+systemctl restart neutron-server
+
+# 重启f5-openstack-agent
+systemctl restart f5-openstack-agent
+
 # 创建证书
 ```ini
 # Create certificate chain and key
