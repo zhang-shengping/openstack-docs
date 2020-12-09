@@ -1,5 +1,6 @@
 # 前置条件
 常用配置已经完成，HTTP Listener 能够正常下发，BIG-IP创建成功。
+Barbican服务启动和Barbican Client安装成功。
 
 # 更新Neutron 配置文件 
 vi /etc/neutron/neutron.conf
