@@ -53,7 +53,10 @@ service_provider=LOADBALANCERV2:CORE:neutron_lbaas.drivers.f5.v2_CORE.CORE:defau
 
 - 使用L2/L3 分段模式
 
-验证Agent配置文件中advertised_tunnel_types匹配Neutron 网络中的provider:network_type。如果配置不匹配，检查网络配置并修正。**常见操作问题**
+验证Agent配置文件中advertised_tunnel_types匹配Neutron 网络中的provider:network_type。如果配置不匹配，检查网络配置并修正。
+
+
+**常见操作问题**
 
 - 创建资源要时候同一个用户，要不会发生 folder/partition not found 问题。
 - 只用使用 non-shared network 的时候创建的 Loadbalancer 和 Member 资源才会有 route domain id。
