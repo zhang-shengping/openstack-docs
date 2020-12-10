@@ -6,6 +6,8 @@ Barbican服务启动和Barbican Client安装成功。
 vi /etc/neutron/neutron.conf
 ```ini 
 
+根据实际环境设置，有的OS支持v2.0，有的是v3，下面是v2.0举例。
+
 [service_auth]
 auth_url=http://10.251.13.59:5000/v2.0
 admin_user = admin
