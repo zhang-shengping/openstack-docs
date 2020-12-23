@@ -51,6 +51,28 @@ f5_driver_perf_mode = 3
 ...
 ```
 
+##### agent_down_time
+
+`agent_down_time` 配置不是我们新增的参数,是在 `neutron.conf` 文件中本来就有的一个参数，我们设置为 500 是 best practise 配置。
+
+```ini
+[DEFAULT]
+...
+agent_down_time = 300
+...
+```
+
+##### to_speedup_populate_logic
+
+`to_speedup_populate_logic` 配置是我们新增的参数, 一个加速配置，减少一些db查询操作的参数, 在 `neutron.conf` 文件中配置，配置如下：
+
+```ini
+[DEFAULT]
+...
+to_speedup_populate_logic = true
+...
+```
+
 ## 现网环境 F5 lbaas agent 关键配置
 
 F5 的配置文件存在于 `/etc/neutron/services/f5/f5-openstack-agent.ini`中。
@@ -59,6 +81,9 @@ F5 的配置文件存在于 `/etc/neutron/services/f5/f5-openstack-agent.ini`中
 [DEFAULT]
 # True 开启 False 关闭 debug 功能，建议在 F5 agent 正常启动后设置 debug = False。
 debug = True
+
+# lite 表示 agent 切换成 3.0 代码，normal 表示 agent 使用 2.0 代码。
+f5_agent_mode = lite
 
 # 此配置和 F5 agent 定时同步（以秒为单位） neutron DB 数据到 Bigip 有关。建议更具环境需求配置。
 periodic_interval = 1800
@@ -127,6 +152,9 @@ icontrol_username = admin
 
 # 配置 BIGIP 管理员密码。
 icontrol_password = a112312
+
+# F5 agent 3.0 在创建 listener 的时候可以通过此文件定制化 http/https profile 中参数。
+f5_extended_profile = /etc/neutron/services/f5/f5-extended-profile.json
 ```
 
 ## F5 agent 2.0 数据同步机制配置
