@@ -53,7 +53,7 @@ f5_driver_perf_mode = 3
 
 ##### agent_down_time
 
-`agent_down_time` 配置不是我们新增的参数,是在 `neutron.conf` 文件中本来就有的一个参数，我们设置为 500 是 best practise 配置。
+`agent_down_time` 配置不是我们新增的参数,是在 `neutron.conf` 文件中本来就有的一个参数，我们设置为 300 是 best practice 配置。
 
 ```ini
 [DEFAULT]
