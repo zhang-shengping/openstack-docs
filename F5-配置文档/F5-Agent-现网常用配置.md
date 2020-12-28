@@ -129,6 +129,9 @@ f5_route_domain_strictness = False
 # 开启 listener SNAT 功能。建议如果使用 listener SNAT 需要设置此值为 True。
 f5_snat_mode = True
 
+# 当同一个 tenant 使用同一个 subnet 在不同 provider 下创建 snat pool 时，需要配置当前 agent 所对应的 provider name，用于确保不同 provider 下 snat pool 中的 member ip 是不一样的。
+provider_name = 'CORE'
+
 # 开启 listener SANT pool 功能，并且定义每个 SNAT pool 中 member 个数。建议如果使用 SNAT pool，此值根据环境至少设置为 1。如果设置为 0，listener 为 auto SNAT 功能。
 f5_snat_addresses_per_subnet = 1
 
