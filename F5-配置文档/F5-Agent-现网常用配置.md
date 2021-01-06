@@ -177,6 +177,26 @@ service_resync_interval = 86400
 
  环境配置过程中，需要根据环境，用户操作下发频率，同步频率，Bigip 设备更换频率，Bigip 配置更新频率等综合考虑全量同步对配置下发效率的影响。后期我们会进行实验和观察客户状态，给出进一步的分析结果。
 
+## F5 agent 4.5 Listener 带宽配置
+
+F5 agent 4.5中与带宽配置相关的参数有f5_bandwidth_default和f5_bandwidth_max两个参数。
+
+```ini
+# 此配置规定Listener默认的带宽数值，单位是M
+f5_bandwidth_default = 200
+
+# 此配置规定Listener最大的带宽数值，单位是M
+f5_bandwidth_default = 1000
+
+# 如果配置文件中的default和max 参数配置小于0, 则分别设置为 200和10000 . （代表200M和10000M）
+# 如果配置文件中的default大于了max，则把default值改为max值。
+
+# 关于neutron API 输入的bandwidth参数：
+# 如果bandwidth输入等于0， 我们想把它解释成对带宽不做限制，而不是默认的200M. 这样有利于扩展也更符合用户习惯。
+# 如果bandwidth输入小于0 ， 我们把它解释为输入错误，创建或者更新LB出错。
+# 如果bandwidth输入大于max, 我们把它解释为输入错误，创建或者更新LB出错。
+# 如果bandwidth在合理区间内[0,max], 但是超过了bigip侧的范围，我们不做检查，等待bigip侧的处理错误返回。
+```
 ## REFERENCES
 
 [F5 Integration for OpenStack Neutron LBaaS - Troubleshooting](https://clouddocs.f5.com/cloud/openstack/v1/troubleshooting/troubleshoot-lbaas.html)
