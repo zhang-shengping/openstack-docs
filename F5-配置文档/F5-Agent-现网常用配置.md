@@ -186,7 +186,7 @@ F5 agent 4.5中与带宽配置相关的参数有f5_bandwidth_default和f5_bandwi
 f5_bandwidth_default = 200
 
 # 此配置规定Listener最大的带宽数值，单位是M
-f5_bandwidth_default = 1000
+f5_bandwidth_max = 10000
 
 # 如果配置文件中的default和max 参数配置小于0, 则分别设置为 200和10000 . （代表200M和10000M）
 # 如果配置文件中的default大于了max，则把default值改为max值。
