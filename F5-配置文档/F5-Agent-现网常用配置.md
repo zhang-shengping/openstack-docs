@@ -85,7 +85,7 @@ debug = True
 # lite 表示 agent 切换成 3.0 代码，normal 表示 agent 使用 2.0 代码。
 f5_agent_mode = lite
 
-# 此配置和 F5 agent 定时同步（以秒为单位） neutron DB 数据到 Bigip 有关。建议更具环境需求配置。
+# 此配置和 F5 agent 定时同步（以秒为单位） neutron DB 数据到 Bigip 有关。建议更具环境需求配置。在 agent 3.0 中因为没有数据同步所以这个值可以调至 30 秒。
 periodic_interval = 1800
 
 # 此配置和 F5 agent 定时同步（以秒为单位） neutron DB 数据到 Bigip 有关，在没有任何 report_state, 和对 neutron lbaas 操作的情况下，service_resync_interval 决定了每隔多久去做数据同步。建议可以将此值设置大一些，这样在没有对 Lbaas 操作的情况下，不会频繁 sync 数据。注意此配置只存在于 agent 2.0 中，只在使用 agent 2.0 的时候修改此配置才有意义。
@@ -128,6 +128,9 @@ f5_route_domain_strictness = False
 
 # 开启 listener SNAT 功能。建议如果使用 listener SNAT 需要设置此值为 True。
 f5_snat_mode = True
+
+# 配置 F5 agent 所在的 Openstack availability zone. 
+availability_zone =
 
 # 当同一个 tenant 使用同一个 subnet 在不同 provider 下创建 snat pool 时，需要配置当前 agent 所对应的 provider name，用于确保不同 provider 下 snat pool 中的 member ip 是不一样的。
 provider_name = 'CORE'
